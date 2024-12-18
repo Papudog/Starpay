@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.logo > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.season__container {
+  margin-top: 2rem;
+  text-align: center;
+
+  .season__title {
+    margin-bottom: 1rem;
+  }
+}
+
+.season__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+
+  .season__item {
+    opacity: 0;
+    animation: fadeIn 0.1s ease-in-out forwards;
+    animation-delay: var(--delay);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

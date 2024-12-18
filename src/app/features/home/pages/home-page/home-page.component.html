@@ -1,0 +1,24 @@
+<section class="container">
+  <picture class="logo">
+    <img src="/png/Main_Logo.png" />
+  </picture>
+
+  <h1>Starpay</h1>
+
+  <div class="season__container">
+    <h2 class="season__title">Select your current season</h2>
+
+    <ul class="season__list">
+      @for (season of seasons; track season.season; let index = $index) {
+        <li class="season__item" [ngStyle]="{ '--delay': index * 0.3 + 's' }">
+          <star-card
+            [title]="season.season"
+            [imageSrc]="season.imageSrc"
+            [href]="season.href"
+          >
+          </star-card>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

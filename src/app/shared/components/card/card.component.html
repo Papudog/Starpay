@@ -1,0 +1,17 @@
+<div class="card__container">
+  <div class="card__content">
+    @if (href()) {
+      <a (click)="this.navigateTo()">
+        <div class="content-wrapper">
+          <h3>{{ title() }}</h3>
+          <img [src]="imageSrc()" />
+        </div>
+      </a>
+    } @else {
+      <div class="content-wrapper">
+        <h3>{{ title() }}</h3>
+        <img [src]="imageSrc()" alt="" />
+      </div>
+    }
+  </div>
+</div>

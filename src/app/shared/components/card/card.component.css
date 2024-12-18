@@ -1,0 +1,47 @@
+.card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("/png/Frame.png") no-repeat center center/contain;
+
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  padding: 0.6rem;
+
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    text-align: center;
+    width: 70px;
+
+    & a {
+      width: 100%;
+    }
+
+    & img {
+      width: 30px;
+    }
+
+    @media (min-width: 768px) {
+      width: 100px;
+
+      .null {
+        object-fit: contain;
+      }
+    }
+  }
+}

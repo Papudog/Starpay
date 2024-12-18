@@ -1,0 +1,270 @@
+{
+  "spring": [
+    {
+      "name": "Strawberry",
+      "purchaseValue": 100,
+      "source": "Egg Festival",
+      "price": 120,
+      "time": 8,
+      "regrowthTime": 4,
+      "experience": 18,
+      "imagePath": "/png/Strawberry.png"
+    },
+    {
+      "name": "Blue Jazz",
+      "purchaseValue": 30,
+      "source": "Pierre's General Store",
+      "price": 50,
+      "time": 7,
+      "regrowthTime": null,
+      "experience": 10,
+      "imagePath": "/png/Blue_Jazz.png"
+    },
+    {
+      "name": "Cauliflower",
+      "purchaseValue": 80,
+      "source": "Pierre's General Store",
+      "price": 175,
+      "time": 12,
+      "regrowthTime": null,
+      "experience": 23,
+      "imagePath": "/png/Cauliflower.png"
+    },
+    {
+      "name": "Potato",
+      "purchaseValue": 50,
+      "source": "Pierre's General Store",
+      "price": 80,
+      "time": 6,
+      "regrowthTime": null,
+      "experience": 14,
+      "imagePath": "/png/Potato.png"
+    },
+    {
+      "name": "Parsnip",
+      "purchaseValue": 20,
+      "source": "Pierre's General Store",
+      "price": 35,
+      "time": 4,
+      "regrowthTime": null,
+      "experience": 8,
+      "imagePath": "/png/Parsnip.png"
+    },
+    {
+      "name": "Kale",
+      "purchaseValue": 70,
+      "source": "Pierre's General Store",
+      "price": 110,
+      "time": 6,
+      "regrowthTime": null,
+      "experience": 17,
+      "imagePath": "/png/Kale.png"
+    },
+    {
+      "name": "Garlic",
+      "purchaseValue": 40,
+      "source": "Pierre's General Store",
+      "price": 60,
+      "time": 4,
+      "regrowthTime": null,
+      "experience": 12,
+      "imagePath": "/png/Garlic.png"
+    },
+    {
+      "name": "Rhubarb",
+      "purchaseValue": 100,
+      "source": "Oasis (Desert)",
+      "price": 220,
+      "time": 13,
+      "regrowthTime": null,
+      "experience": 26,
+      "imagePath": "/png/Rhubarb.png"
+    },
+    {
+      "name": "Ancient Fruit",
+      "purchaseValue": null,
+      "source": "Rare Seed/Artifact",
+      "price": 550,
+      "time": 28,
+      "regrowthTime": 7,
+      "experience": 38,
+      "imagePath": "/png/Ancient_Fruit.png"
+    }
+  ],
+
+  "summer": [
+    {
+      "name": "Tomato",
+      "purchaseValue": 50,
+      "source": "Pierre's General Store",
+      "price": 60,
+      "time": 11,
+      "regrowthTime": 4,
+      "experience": 12,
+      "imagePath": "/png/Tomato.png"
+    },
+    {
+      "name": "Blueberry",
+      "purchaseValue": 80,
+      "source": "Pierre's General Store",
+      "price": 50,
+      "time": 13,
+      "regrowthTime": 4,
+      "experience": 10,
+      "imagePath": "/png/Blueberry.png"
+    },
+    {
+      "name": "Melon",
+      "purchaseValue": 80,
+      "source": "Pierre's General Store",
+      "price": 250,
+      "time": 12,
+      "regrowthTime": null,
+      "experience": 27,
+      "imagePath": "/png/Melon.png"
+    },
+    {
+      "name": "Corn",
+      "purchaseValue": 150,
+      "source": "Pierre's General Store",
+      "price": 50,
+      "time": 14,
+      "regrowthTime": 4,
+      "experience": 10,
+      "imagePath": "/png/Corn.png"
+    },
+    {
+      "name": "Hops",
+      "purchaseValue": 60,
+      "source": "Pierre's General Store",
+      "price": 25,
+      "time": 11,
+      "regrowthTime": 1,
+      "experience": 15,
+      "imagePath": "/png/Hops.png"
+    },
+    {
+      "name": "Red Cabbage",
+      "purchaseValue": 100,
+      "source": "Pierre's General Store",
+      "price": 260,
+      "time": 9,
+      "regrowthTime": null,
+      "experience": 28,
+      "imagePath": "/png/Red_Cabbage.png"
+    },
+    {
+      "name": "Starfruit",
+      "purchaseValue": 400,
+      "source": "Oasis (Desert)",
+      "price": 750,
+      "time": 13,
+      "regrowthTime": null,
+      "experience": 43,
+      "imagePath": "/png/Starfruit.png"
+    },
+    {
+      "name": "Ancient Fruit",
+      "purchaseValue": null,
+      "source": "Rare Seed/Artifact",
+      "price": 550,
+      "time": 28,
+      "regrowthTime": 7,
+      "experience": 38,
+      "imagePath": "/png/Ancient_Fruit.png"
+    }
+  ],
+
+  "fall": [
+    {
+      "name": "Pumpkin",
+      "purchaseValue": 100,
+      "source": "Pierre's General Store",
+      "price": 320,
+      "time": 13,
+      "regrowthTime": null,
+      "experience": 31,
+      "imagePath": "/png/Pumpkin.png"
+    },
+    {
+      "name": "Cranberries",
+      "purchaseValue": 240,
+      "source": "Pierre's General Store",
+      "price": 75,
+      "time": 7,
+      "regrowthTime": 5,
+      "experience": 14,
+      "imagePath": "/png/Cranberries.png"
+    },
+    {
+      "name": "Yam",
+      "purchaseValue": 60,
+      "source": "Pierre's General Store",
+      "price": 160,
+      "time": 10,
+      "regrowthTime": null,
+      "experience": 22,
+      "imagePath": "/png/Yam.png"
+    },
+    {
+      "name": "Corn",
+      "purchaseValue": 150,
+      "source": "Pierre's General Store",
+      "price": 50,
+      "time": 14,
+      "regrowthTime": 4,
+      "experience": 10,
+      "imagePath": "/png/Corn.png"
+    },
+    {
+      "name": "Eggplant",
+      "purchaseValue": 20,
+      "source": "Pierre's General Store",
+      "price": 60,
+      "time": 5,
+      "regrowthTime": 5,
+      "experience": 12,
+      "imagePath": "/png/Eggplant.png"
+    },
+    {
+      "name": "Artichoke",
+      "purchaseValue": 30,
+      "source": "Pierre's General Store",
+      "price": 160,
+      "time": 8,
+      "regrowthTime": null,
+      "experience": 22,
+      "imagePath": "/png/Artichoke.png"
+    },
+    {
+      "name": "Amaranth",
+      "purchaseValue": 70,
+      "source": "Pierre's General Store",
+      "price": 150,
+      "time": 7,
+      "regrowthTime": null,
+      "experience": 21,
+      "imagePath": "/png/Amaranth.png"
+    },
+    {
+      "name": "Sweet Gem Berry",
+      "purchaseValue": 1000,
+      "source": "Traveling Cart",
+      "price": 3000,
+      "time": 24,
+      "regrowthTime": null,
+      "experience": 64,
+      "imagePath": "/png/Sweet_Gem_Berry.png"
+    },
+    {
+      "name": "Ancient Fruit",
+      "purchaseValue": null,
+      "source": "Rare Seed/Artifact",
+      "price": 550,
+      "time": 28,
+      "regrowthTime": 7,
+      "experience": 38,
+      "imagePath": "/png/Ancient_Fruit.png"
+    }
+  ]
+}
