@@ -6,33 +6,33 @@ import { CommonModule } from "@angular/common";
 const seasons = [
   {
     season: "Spring",
-    imageSrc: "/png/Strawberry.png",
+    imageSrc: "/assets/png/Strawberry.png",
     imageAlt: "Strawberry",
-    href: "/crops/?season=spring",
+    param: "spring",
   },
   {
     season: "Summer",
-    imageSrc: "/png/Starfruit.png",
+    imageSrc: "/assets/png/Starfruit.png",
     imageAlt: "Starfruit",
-    href: "/crops/?season=summer",
+    param: "summer",
   },
   {
     season: "Fall",
-    imageSrc: "/png/Pumpkin.png",
+    imageSrc: "/assets/png/Pumpkin.png",
     imageAlt: "Pumpkin",
-    href: "/crops/?season=fall",
+    param: "fall",
   },
   {
     season: "Winter",
-    imageSrc: "/png/Powdermelon.png",
+    imageSrc: "/assets/png/Powdermelon.png",
     imageAlt: "Powdermelon",
-    href: "/crops/?season=winter",
+    param: "winter",
   },
 ];
 
 @Component({
   selector: "star-home-page",
-  imports: [CommonModule, RouterLink, RouterLinkActive, CardComponent],
+  imports: [CommonModule, CardComponent],
   templateUrl: "./home-page.component.html",
   styleUrl: "./home-page.component.css",
 })

@@ -1,6 +1,6 @@
 <div class="card__container">
   <div class="card__content">
-    @if (href()) {
+    @if (param()) {
       <a (click)="this.navigateTo()">
         <div class="content-wrapper">
           <h3>{{ title() }}</h3>

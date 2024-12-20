@@ -3,13 +3,20 @@
   justify-content: center;
   align-items: center;
 
-  background: url("/png/Frame.png") no-repeat center center/contain;
+  background: url("/assets/png/Frame.png") no-repeat center center/contain;
 
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s;
 
   padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1.2rem;
+    h3 {
+      font-size: 1.125rem; /* 18px */
+    }
+  }
 
   &:hover {
     transform: scale(1.05);

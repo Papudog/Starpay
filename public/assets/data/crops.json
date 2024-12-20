@@ -8,17 +8,17 @@
       "time": 8,
       "regrowthTime": 4,
       "experience": 18,
-      "imagePath": "/png/Strawberry.png"
+      "imagePath": "/assets/png/Strawberry.png"
     },
     {
-      "name": "Blue Jazz",
+      "name": "B. Jazz",
       "purchaseValue": 30,
       "source": "Pierre's General Store",
       "price": 50,
       "time": 7,
       "regrowthTime": null,
       "experience": 10,
-      "imagePath": "/png/Blue_Jazz.png"
+      "imagePath": "/assets/png/Blue_Jazz.png"
     },
     {
       "name": "Cauliflower",
@@ -28,7 +28,7 @@
       "time": 12,
       "regrowthTime": null,
       "experience": 23,
-      "imagePath": "/png/Cauliflower.png"
+      "imagePath": "/assets/png/Cauliflower.png"
     },
     {
       "name": "Potato",
@@ -38,7 +38,7 @@
       "time": 6,
       "regrowthTime": null,
       "experience": 14,
-      "imagePath": "/png/Potato.png"
+      "imagePath": "/assets/png/Potato.png"
     },
     {
       "name": "Parsnip",
@@ -48,7 +48,7 @@
       "time": 4,
       "regrowthTime": null,
       "experience": 8,
-      "imagePath": "/png/Parsnip.png"
+      "imagePath": "/assets/png/Parsnip.png"
     },
     {
       "name": "Kale",
@@ -58,7 +58,7 @@
       "time": 6,
       "regrowthTime": null,
       "experience": 17,
-      "imagePath": "/png/Kale.png"
+      "imagePath": "/assets/png/Kale.png"
     },
     {
       "name": "Garlic",
@@ -68,7 +68,7 @@
       "time": 4,
       "regrowthTime": null,
       "experience": 12,
-      "imagePath": "/png/Garlic.png"
+      "imagePath": "/assets/png/Garlic.png"
     },
     {
       "name": "Rhubarb",
@@ -78,17 +78,17 @@
       "time": 13,
       "regrowthTime": null,
       "experience": 26,
-      "imagePath": "/png/Rhubarb.png"
+      "imagePath": "/assets/png/Rhubarb.png"
     },
     {
-      "name": "Ancient Fruit",
+      "name": "A. Fruit",
       "purchaseValue": null,
       "source": "Rare Seed/Artifact",
       "price": 550,
       "time": 28,
       "regrowthTime": 7,
       "experience": 38,
-      "imagePath": "/png/Ancient_Fruit.png"
+      "imagePath": "/assets/png/Ancient_Fruit.png"
     }
   ],
 
@@ -101,7 +101,7 @@
       "time": 11,
       "regrowthTime": 4,
       "experience": 12,
-      "imagePath": "/png/Tomato.png"
+      "imagePath": "/assets/png/Tomato.png"
     },
     {
       "name": "Blueberry",
@@ -111,7 +111,7 @@
       "time": 13,
       "regrowthTime": 4,
       "experience": 10,
-      "imagePath": "/png/Blueberry.png"
+      "imagePath": "/assets/png/Blueberry.png"
     },
     {
       "name": "Melon",
@@ -121,7 +121,7 @@
       "time": 12,
       "regrowthTime": null,
       "experience": 27,
-      "imagePath": "/png/Melon.png"
+      "imagePath": "/assets/png/Melon.png"
     },
     {
       "name": "Corn",
@@ -131,7 +131,7 @@
       "time": 14,
       "regrowthTime": 4,
       "experience": 10,
-      "imagePath": "/png/Corn.png"
+      "imagePath": "/assets/png/Corn.png"
     },
     {
       "name": "Hops",
@@ -141,17 +141,17 @@
       "time": 11,
       "regrowthTime": 1,
       "experience": 15,
-      "imagePath": "/png/Hops.png"
+      "imagePath": "/assets/png/Hops.png"
     },
     {
-      "name": "Red Cabbage",
+      "name": "R. Cabbage",
       "purchaseValue": 100,
       "source": "Pierre's General Store",
       "price": 260,
       "time": 9,
       "regrowthTime": null,
       "experience": 28,
-      "imagePath": "/png/Red_Cabbage.png"
+      "imagePath": "/assets/png/Red_Cabbage.png"
     },
     {
       "name": "Starfruit",
@@ -161,17 +161,17 @@
       "time": 13,
       "regrowthTime": null,
       "experience": 43,
-      "imagePath": "/png/Starfruit.png"
+      "imagePath": "/assets/png/Starfruit.png"
     },
     {
-      "name": "Ancient Fruit",
+      "name": "A. Fruit",
       "purchaseValue": null,
       "source": "Rare Seed/Artifact",
       "price": 550,
       "time": 28,
       "regrowthTime": 7,
       "experience": 38,
-      "imagePath": "/png/Ancient_Fruit.png"
+      "imagePath": "/assets/png/Ancient_Fruit.png"
     }
   ],
 
@@ -184,7 +184,7 @@
       "time": 13,
       "regrowthTime": null,
       "experience": 31,
-      "imagePath": "/png/Pumpkin.png"
+      "imagePath": "/assets/png/Pumpkin.png"
     },
     {
       "name": "Cranberries",
@@ -194,7 +194,7 @@
       "time": 7,
       "regrowthTime": 5,
       "experience": 14,
-      "imagePath": "/png/Cranberries.png"
+      "imagePath": "/assets/png/Cranberries.png"
     },
     {
       "name": "Yam",
@@ -204,7 +204,7 @@
       "time": 10,
       "regrowthTime": null,
       "experience": 22,
-      "imagePath": "/png/Yam.png"
+      "imagePath": "/assets/png/Yam.png"
     },
     {
       "name": "Corn",
@@ -214,7 +214,7 @@
       "time": 14,
       "regrowthTime": 4,
       "experience": 10,
-      "imagePath": "/png/Corn.png"
+      "imagePath": "/assets/png/Corn.png"
     },
     {
       "name": "Eggplant",
@@ -224,7 +224,7 @@
       "time": 5,
       "regrowthTime": 5,
       "experience": 12,
-      "imagePath": "/png/Eggplant.png"
+      "imagePath": "/assets/png/Eggplant.png"
     },
     {
       "name": "Artichoke",
@@ -234,7 +234,7 @@
       "time": 8,
       "regrowthTime": null,
       "experience": 22,
-      "imagePath": "/png/Artichoke.png"
+      "imagePath": "/assets/png/Artichoke.png"
     },
     {
       "name": "Amaranth",
@@ -244,27 +244,27 @@
       "time": 7,
       "regrowthTime": null,
       "experience": 21,
-      "imagePath": "/png/Amaranth.png"
+      "imagePath": "/assets/png/Amaranth.png"
     },
     {
-      "name": "Sweet Gem Berry",
+      "name": "S.G Berry",
       "purchaseValue": 1000,
       "source": "Traveling Cart",
       "price": 3000,
       "time": 24,
       "regrowthTime": null,
       "experience": 64,
-      "imagePath": "/png/Sweet_Gem_Berry.png"
+      "imagePath": "/assets/png/Sweet_Gem_Berry.png"
     },
     {
-      "name": "Ancient Fruit",
+      "name": "A. Fruit",
       "purchaseValue": null,
       "source": "Rare Seed/Artifact",
       "price": 550,
       "time": 28,
       "regrowthTime": 7,
       "experience": 38,
-      "imagePath": "/png/Ancient_Fruit.png"
+      "imagePath": "/assets/png/Ancient_Fruit.png"
     }
   ]
 }
