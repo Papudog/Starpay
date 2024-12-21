@@ -49,6 +49,9 @@ h2 {
 h3 {
   font-size: 1rem; /* 16px */
 }
+span {
+  font-size: inherit; /* 14px */
+}
 p {
   font-size: 0.875rem; /* 14px */
 }
@@ -62,6 +65,9 @@ p {
   }
   h3 {
     font-size: 1.5rem; /* 24px */
+  }
+  span {
+    font-size: 1.125rem; /* 18px */
   }
   p {
     font-size: 1.125rem; /* 18px */

@@ -17,7 +17,7 @@ import { CropsService } from "../../services/crops.service";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CropListComponent } from "../../components/crop-list/crop-list.component";
 import { CropDetailsComponent } from "../../components/crop-details/crop-details.component";
-import { ActivatedRoute, ParamMap } from "@angular/router";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -29,6 +29,7 @@ import { CommonModule } from "@angular/common";
 export class CropsPageComponent implements OnInit, OnDestroy, AfterViewInit {
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private _cropsService: CropsService = inject(CropsService);
+  private _router: Router = inject(Router);
 
   private _title: WritableSignal<string> = signal<string>("");
   private _cropDialog = viewChild<ElementRef<HTMLDialogElement>>("cropDialog");
@@ -54,6 +55,10 @@ export class CropsPageComponent implements OnInit, OnDestroy, AfterViewInit {
   });
 
   private _resetCrop = (): void => this.selectedCrop.set({} as Crop);
+
+  protected onHomeButtonClick = (): void => {
+    this._router.navigate(["/"]);
+  };
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params: ParamMap): void => {
