@@ -1,42 +1,30 @@
-.container {
+.home__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: inherit;
-}
 
-.main__title {
-  margin-top: 2rem;
-}
-
-.logo > img {
-  max-width: 100%;
-  height: auto;
-}
-
-.season__container {
-  margin-top: 3rem;
-  text-align: center;
-
-  .season__title {
-    margin-bottom: 1rem;
-  }
-}
-
-.season__list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
-  gap: 1rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  .logo > img {
+    max-width: 100%;
+    height: auto;
   }
 
-  .season__item {
-    opacity: 0;
-    animation: fadeIn 0.1s ease-in-out forwards;
-    animation-delay: var(--delay);
+  .season__container {
+    margin-top: 3rem;
+    text-align: center;
+
+    .season__list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      gap: 1rem;
+
+      .season__item {
+        opacity: 0;
+        animation: fadeIn 0.1s ease-in-out forwards;
+        animation-delay: var(--delay);
+      }
+    }
   }
 }
 

@@ -22,12 +22,6 @@ const seasons = [
     imageAlt: "Pumpkin",
     param: "fall",
   },
-  {
-    season: "Winter",
-    imageSrc: "/assets/png/Powdermelon.png",
-    imageAlt: "Powdermelon",
-    param: "winter",
-  },
 ];
 
 @Component({

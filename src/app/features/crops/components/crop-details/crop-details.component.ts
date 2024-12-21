@@ -1,12 +1,4 @@
-import {
-  Component,
-  effect,
-  EffectRef,
-  input,
-  InputSignal,
-  OnInit,
-  WritableSignal,
-} from "@angular/core";
+import { Component, input, InputSignal, OnInit } from "@angular/core";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 
