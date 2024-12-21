@@ -1,1 +1,7 @@
-<star-crop-list [title]="title()" [crops]="crops()"></star-crop-list>
+<section class="crops__container">
+  <star-crop-list [title]="title()" [crops]="crops()"></star-crop-list>
+
+  <dialog class="crop__dialog" #cropDialog>
+    <star-crop-details [crop]="selectedCrop()"></star-crop-details>
+  </dialog>
+</section>

@@ -8,7 +8,7 @@
         </div>
       </a>
     } @else {
-      <div class="content-wrapper">
+      <div class="content-wrapper" (click)="onClickEvent()">
         <h3>{{ title() }}</h3>
         <img [src]="imageSrc()" alt="" />
       </div>

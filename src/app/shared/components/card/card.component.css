@@ -4,12 +4,11 @@
   align-items: center;
 
   background: url("/assets/png/Frame.png") no-repeat center center/contain;
-
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s;
-
   padding: 1rem;
+  max-width: 150px;
 
   @media (min-width: 768px) {
     padding: 1.2rem;

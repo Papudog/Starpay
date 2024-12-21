@@ -20,28 +20,16 @@ import { HttpClient } from "@angular/common/http";
 export class CropsService implements OnInit, OnDestroy {
   private _httpClient: HttpClient = inject(HttpClient);
 
-  private _crops: WritableSignal<Crop[]> = signal<Crop[]>([]);
-  public readonly crops: Signal<WritableSignal<Crop[]>> = computed(
-    () => this._crops,
-  );
-
-  private _seasonParam: WritableSignal<string | null> = signal<string | null>(
+  public seasonParam: WritableSignal<string | null> = signal<string | null>(
     null,
   );
+  public crops: WritableSignal<Crop[]> = signal<Crop[]>([]);
+  public selectedCrop: WritableSignal<Crop> = signal<Crop>({} as Crop);
 
   constructor() {}
 
-  ngOnInit(): void {}
-  ngOnDestroy(): void {
-    this._fetchCropsEffect.destroy();
-  }
-
-  set seasonParam(season: string) {
-    this._seasonParam.set(season);
-  }
-
   private _fetchCropsEffect: EffectRef = effect((): void => {
-    const season: string | null = this._seasonParam();
+    const season: string | null = this.seasonParam();
 
     if (season !== null)
       this._httpClient
@@ -49,8 +37,13 @@ export class CropsService implements OnInit, OnDestroy {
         .pipe(map((crops): Crop[] => crops[season]))
         .subscribe({
           next: (crops): void => {
-            this._crops.set(crops);
+            this.crops.set(crops);
           },
         });
   });
+
+  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this._fetchCropsEffect.destroy();
+  }
 }

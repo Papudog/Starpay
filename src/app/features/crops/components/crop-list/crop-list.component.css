@@ -1,8 +1,39 @@
-.crop__item {
-  opacity: 0;
+.crops__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+  height: inherit;
 
-  animation: fadeIn 0.5s ease-in-out forwards;
-  animation-delay: var(--delay);
+  .crops__title {
+    background: url("/assets/png/Frame_2.png") no-repeat center center/contain;
+    color: var(--text-color);
+    text-align: center;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .crop__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
+
+    .crop__item {
+      justify-self: center;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+      animation-delay: var(--delay);
+    }
+  }
 }
 
 @keyframes fadeIn {

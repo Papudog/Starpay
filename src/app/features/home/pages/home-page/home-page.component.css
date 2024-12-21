@@ -6,13 +6,17 @@
   height: inherit;
 }
 
+.main__title {
+  margin-top: 2rem;
+}
+
 .logo > img {
   max-width: 100%;
   height: auto;
 }
 
 .season__container {
-  margin-top: 2rem;
+  margin-top: 3rem;
   text-align: center;
 
   .season__title {

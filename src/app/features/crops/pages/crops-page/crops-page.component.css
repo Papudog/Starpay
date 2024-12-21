@@ -1,0 +1,24 @@
+.crops__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+
+.crop__dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-height: 80vh;
+
+  border: 10px solid;
+  border-radius: 14px;
+  border-image: url("/assets/png/Menu_Border.png") 12;
+  background-color: rgba(255, 255, 255, 0.8);
+}

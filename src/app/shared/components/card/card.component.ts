@@ -1,4 +1,11 @@
-import { Component, input, InputSignal } from "@angular/core";
+import {
+  Component,
+  input,
+  InputSignal,
+  output,
+  Output,
+  OutputEmitterRef,
+} from "@angular/core";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 
 type StringOrUndefined = string | undefined;
@@ -14,6 +21,8 @@ export class CardComponent {
   public imageSrc: InputSignal<string> = input.required<string>();
   public param: InputSignal<StringOrUndefined> = input<string>();
 
+  public titleEmitter: OutputEmitterRef<string> = output<string>();
+
   constructor(private _router: Router) {}
 
   protected navigateTo = (): void => {
@@ -21,4 +30,6 @@ export class CardComponent {
       this._router.navigate(["crops", this.param()]);
     }
   };
+
+  protected onClickEvent = (): void => this.titleEmitter.emit(this.title());
 }
