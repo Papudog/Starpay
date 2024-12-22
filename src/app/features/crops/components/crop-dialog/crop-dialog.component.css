@@ -8,6 +8,8 @@
     display: flex;
     position: relative;
     min-height: inherit;
+    scroll-behavior: smooth;
+    overflow: hidden;
 
     .dialog__slide {
       display: flex;
