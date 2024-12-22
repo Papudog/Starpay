@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   input,
@@ -19,27 +18,27 @@ import { CropIncomingComponent } from "../crop-incoming/crop-incoming.component"
   templateUrl: "./crop-dialog.component.html",
   styleUrl: "./crop-dialog.component.css",
 })
-export class CropDialogComponent {
-  private _sliderRef = viewChild<ElementRef<HTMLDivElement>>("sliderRef");
+export class CropDialogComponent implements OnInit, OnDestroy {
+  public crop: InputSignal<Crop> = input.required<Crop>();
 
-  protected crop: InputSignal<Crop> = input.required<Crop>();
+  protected sliderRef =
+    viewChild<ElementRef<HTMLDivElement>>("sliderContainer");
 
   constructor() {}
 
-  protected onButtonScroll = (id: string): void => {
-    const slideToScroll: HTMLElement = document.getElementById(
-      id,
-    ) as HTMLElement;
+  ngOnDestroy(): void {
+    console.log("CropDialogComponent destroyed");
+  }
 
-    if (slideToScroll && this._sliderRef()) {
-      const offSet: number =
-        slideToScroll.offsetLeft - this._sliderRef()!.nativeElement.offsetLeft;
-      const sliderRef = this._sliderRef()!.nativeElement;
+  ngOnInit(): void {
+    console.log("CropDialogComponent initialized");
+  }
 
-      sliderRef.scrollTo({
-        left: offSet,
-        behavior: "smooth",
-      });
-    }
+  protected nextSlide = (): void => {
+    const sliderWidth: number = this.sliderRef()?.nativeElement
+      .offsetWidth as number;
+    const sliderRef: HTMLElement = this.sliderRef()
+      ?.nativeElement as HTMLElement;
+    sliderRef.scrollLeft += sliderWidth;
   };
 }

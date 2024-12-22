@@ -1,11 +1,11 @@
 <div class="dialog__container">
-  <div class="dialog__slider" #sliderRef>
-    <div class="dialog__slide" id="details__slide">
+  <div class="dialog__slider" #sliderContainer>
+    <div class="dialog__slide">
       <star-card [title]="crop().name" [imageSrc]="crop().imagePath" />
       <star-crop-details [crop]="crop()" />
-      <div id="next" (click)="onButtonScroll('incoming__slide')"></div>
+      <div id="next" (click)="nextSlide()"></div>
     </div>
-    <div class="dialog__slide" id="incoming__slide">
+    <div class="dialog__slide">
       <star-crop-incoming></star-crop-incoming>
     </div>
   </div>

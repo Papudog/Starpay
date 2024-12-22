@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   EffectRef,
   ElementRef,
@@ -26,7 +25,7 @@ import { CropDialogComponent } from "../../components/crop-dialog/crop-dialog.co
   templateUrl: "./crops-page.component.html",
   styleUrl: "./crops-page.component.css",
 })
-export class CropsPageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CropsPageComponent implements OnInit, OnDestroy {
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private _cropsService: CropsService = inject(CropsService);
   private _router: Router = inject(Router);
@@ -46,19 +45,26 @@ export class CropsPageComponent implements OnInit, OnDestroy, AfterViewInit {
   protected selectedCrop: WritableSignal<Crop> =
     this._cropsService.selectedCrop;
 
+  protected isSelectedCrop: WritableSignal<boolean> = signal<boolean>(false);
+
   constructor() {}
 
   private _selectedCropEffect: EffectRef = effect((): void => {
-    if (Object.keys(this.selectedCrop()).length > 0 && this._cropDialog()) {
-      this._cropDialog()?.nativeElement.showModal();
-    }
+    if (Object.keys(this.selectedCrop()).length > 0) {
+      this.isSelectedCrop.set(true);
+      const cropDialog = this._cropDialog()?.nativeElement;
+
+      if (cropDialog) {
+        cropDialog.showModal();
+        cropDialog.addEventListener("close", this._resetCrop, { once: true });
+      }
+    } else this.isSelectedCrop.set(false);
   });
 
   private _resetCrop = (): void => this.selectedCrop.set({} as Crop);
 
-  protected onHomeButtonClick = (): void => {
+  protected onHomeButtonClick = (): Promise<boolean> =>
     this._router.navigate(["/"]);
-  };
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params: ParamMap): void => {
@@ -68,13 +74,6 @@ export class CropsPageComponent implements OnInit, OnDestroy, AfterViewInit {
         this._title.set(seasonParam);
       }
     });
-  }
-
-  ngAfterViewInit(): void {
-    this._cropDialog()?.nativeElement.addEventListener(
-      "close",
-      this._resetCrop,
-    );
   }
 
   ngOnDestroy(): void {
