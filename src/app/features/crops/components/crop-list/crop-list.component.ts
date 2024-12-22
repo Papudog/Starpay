@@ -1,19 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-  Component,
-  computed,
-  effect,
-  EffectRef,
-  ElementRef,
-  input,
-  InputSignal,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild,
-  viewChild,
-  inject,
-} from "@angular/core";
+import { Component, input, InputSignal, OnInit, inject } from "@angular/core";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 import { CropsService } from "../../services/crops.service";
@@ -36,10 +22,7 @@ export class CropListComponent implements OnInit {
     const crop: Crop | undefined = this.crops().find(
       (crop: Crop): boolean => crop.name === title,
     );
-    if (crop) {
-      console.log(crop);
-      this._cropService.selectedCrop.set(crop);
-    }
+    if (crop) this._cropService.selectedCrop.set(crop);
   };
 
   ngOnInit(): void {}

@@ -16,13 +16,13 @@ import {
 import { CropsService } from "../../services/crops.service";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CropListComponent } from "../../components/crop-list/crop-list.component";
-import { CropDetailsComponent } from "../../components/crop-details/crop-details.component";
 import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { CropDialogComponent } from "../../components/crop-dialog/crop-dialog.component";
 
 @Component({
   selector: "star-crops-page",
-  imports: [CommonModule, CropListComponent, CropDetailsComponent],
+  imports: [CommonModule, CropListComponent, CropDialogComponent],
   templateUrl: "./crops-page.component.html",
   styleUrl: "./crops-page.component.css",
 })

@@ -1,60 +1,42 @@
-<div class="details__container">
-  <div class="details__slider">
-    <div class="details__slide">
-      <star-card
-        [title]="crop().name"
-        [imageSrc]="crop().imagePath"
-      ></star-card>
-
-      <section class="details__section pricing__section">
-        <h2 class="details__title">Pricing</h2>
-        <div class="details">
-          <div>
-            <label>Purchase: </label
-            ><span>{{ crop().purchaseValue + "g per unit" }}</span>
-          </div>
-
-          <div>
-            <label>Sell: </label><span>{{ crop().price + "g" }}</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="details__section growing__section">
-        <h2 class="details__title">Growing</h2>
-        <div class="details">
-          <div>
-            <label>Time: </label><span>{{ crop().time + " days" }}</span>
-          </div>
-          @if (crop().regrowthTime) {
-            <div>
-              <label>Regrowth Time: </label>
-              <span>{{ crop().regrowthTime + " days" }}</span>
-            </div>
-          }
-        </div>
-      </section>
-
-      <section class="details__section growing__section">
-        <h2 class="details__title">Extras</h2>
-        <div class="details">
-          <div>
-            <label>Experience: </label
-            ><span>{{ crop().experience + " points" }}</span>
-          </div>
-          <div>
-            <label>Source: </label>
-            <span>{{ crop().source }}</span>
-          </div>
-        </div>
-      </section>
+<section class="details__section pricing__section">
+  <h2 class="details__title">Pricing</h2>
+  <div class="details">
+    <div>
+      <label>Purchase: </label
+      ><span>{{ crop().purchaseValue + "g per unit" }}</span>
     </div>
 
-    <div class="details__slide">
-      <star-card
-        [title]="crop().name"
-        [imageSrc]="crop().imagePath"
-      ></star-card>
+    <div>
+      <label>Sell: </label><span>{{ crop().price + "g" }}</span>
     </div>
   </div>
-</div>
+</section>
+
+<section class="details__section growing__section">
+  <h2 class="details__title">Growing</h2>
+  <div class="details">
+    <div>
+      <label>Time: </label><span>{{ crop().time + " days" }}</span>
+    </div>
+    @if (crop().regrowthTime) {
+      <div>
+        <label>Regrowth Time: </label>
+        <span>{{ crop().regrowthTime + " days" }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="details__section growing__section">
+  <h2 class="details__title">Extras</h2>
+  <div class="details">
+    <div>
+      <label>Experience: </label
+      ><span>{{ crop().experience + " points" }}</span>
+    </div>
+    <div>
+      <label>Source: </label>
+      <span>{{ crop().source }}</span>
+    </div>
+  </div>
+</section>

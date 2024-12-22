@@ -1,11 +1,11 @@
 <section class="crops__container">
-  <star-crop-list [title]="title()" [crops]="crops()"></star-crop-list>
+  <star-crop-list [title]="title()" [crops]="crops()" />
 
   <button class="button__home" type="button" (click)="onHomeButtonClick()">
     <span>Choose another season</span>
   </button>
 
   <dialog class="crop__dialog" #cropDialog>
-    <star-crop-details [crop]="selectedCrop()"></star-crop-details>
+    <star-crop-dialog [crop]="selectedCrop()" />
   </dialog>
 </section>
