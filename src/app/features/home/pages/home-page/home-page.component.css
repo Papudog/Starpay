@@ -5,6 +5,9 @@
   align-items: center;
   height: inherit;
 
+  .logo {
+    z-index: 10;
+  }
   .logo > img {
     max-width: 100%;
     height: auto;

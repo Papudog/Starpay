@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 import { CommonModule } from "@angular/common";
 

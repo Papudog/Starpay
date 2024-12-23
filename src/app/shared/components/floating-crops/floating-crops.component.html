@@ -1,0 +1,10 @@
+<div class="floating__container">
+  @for (icon of icons; track icon; let index = $index) {
+    <img
+      class="icons"
+      [src]="icon"
+      [style.top.%]="positions[index].top"
+      [style.left.%]="positions[index].left"
+    />
+  }
+</div>
