@@ -17,4 +17,22 @@
   @media (max-width: 768px) {
     background: rgba(0, 0, 0, 0.2);
   }
+
+  .home__link {
+    background: url("/assets/png/Arrow.png") no-repeat center center/contain;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 1rem;
+    animation: scaling 0.8s infinite alternate;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    transform: rotate(90deg) scaleY(-1) scaleX(-1) scale(1);
+  }
+  100% {
+    transform: rotate(90deg) scaleY(-1) scaleX(-1) scale(1.1);
+  }
 }
