@@ -6,16 +6,22 @@
   <div class="season__container">
     <ul class="season__list">
       @for (season of seasons; track season.season; let index = $index) {
-        <li class="season__item" [ngStyle]="{ '--delay': index * 0.3 + 's' }">
-          <star-card
-            [title]="season.season"
-            [imageSrc]="season.imageSrc"
-            [param]="season.param"
-          />
-        </li>
+      <li class="season__item" [ngStyle]="{ '--delay': index * 0.3 + 's' }">
+        <star-card
+          [title]="season.season"
+          [imageSrc]="season.imageSrc"
+          [param]="season.param"
+        />
+      </li>
       }
     </ul>
   </div>
+
+  <a class="about" routerLink="/about">
+    <img src="/assets/png/Star.png" />
+    <h3>About starpay</h3>
+    <img src="/assets/png/Star.png" />
+  </a>
 
   <!-- <div class="about__container"></div> -->
 </section>

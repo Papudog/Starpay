@@ -1,17 +1,4 @@
-import {
-  Component,
-  EffectRef,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  Signal,
-  WritableSignal,
-  computed,
-  effect,
-  inject,
-  signal,
-  viewChild,
-} from "@angular/core";
+import { Component, EffectRef, ElementRef, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, inject, signal, viewChild } from "@angular/core";
 import { CropsService } from "../../services/crops.service";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CropListComponent } from "../../components/crop-list/crop-list.component";
@@ -36,18 +23,16 @@ export class CropsPageComponent implements OnInit, OnDestroy {
   protected readonly title: Signal<string> = computed((): string =>
     this._title()
       .split("")
-      .map((value: string, index: number): string =>
-        index === 0 ? value.toUpperCase() : value,
+      .map((value: string, index: number): string => index === 0 ? value.toUpperCase() : value,
       )
       .join(""),
   );
   protected crops: WritableSignal<Crop[]> = this._cropsService.crops;
-  protected selectedCrop: WritableSignal<Crop> =
-    this._cropsService.selectedCrop;
+  protected selectedCrop: WritableSignal<Crop> = this._cropsService.selectedCrop;
 
   protected isSelectedCrop: WritableSignal<boolean> = signal<boolean>(false);
 
-  constructor() {}
+  constructor() { }
 
   private _selectedCropEffect: EffectRef = effect((): void => {
     if (Object.keys(this.selectedCrop()).length > 0) {

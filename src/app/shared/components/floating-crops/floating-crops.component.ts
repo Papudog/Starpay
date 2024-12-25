@@ -29,8 +29,8 @@ export class FloatingCropsComponent implements OnInit {
 
   private _generateRandomPosition = (): void => {
     this.positions = this.icons.map(() => ({
-      top: Math.random() * 95,
-      left: Math.random() * 95,
+      top: Math.random() * 90,
+      left: Math.random() * 90,
     }));
   };
 

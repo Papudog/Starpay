@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 const seasons = [
   {
@@ -25,12 +26,12 @@ const seasons = [
 
 @Component({
   selector: "star-home-page",
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule, CardComponent, RouterLink],
   templateUrl: "./home-page.component.html",
   styleUrl: "./home-page.component.css",
 })
 export class HomePageComponent {
   protected seasons = seasons;
 
-  constructor() {}
+  constructor() { }
 }
