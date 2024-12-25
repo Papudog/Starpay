@@ -1,17 +1,17 @@
 <section class="crops__section">
   <div class="crops__title">
-    <h2>{{ title() }}</h2>
+    <h1>{{ title() }}</h1>
   </div>
 
   <ul class="crop__list">
     @for (crop of crops(); track crop.name; let index = $index) {
-      <li class="crop__item" [ngStyle]="{ '--delay': index * 0.2 + 's' }">
-        <star-card
-          [title]="crop.name"
-          [imageSrc]="crop.imagePath"
-          (titleEmitter)="onSelectedCrop($event)"
-        />
-      </li>
+    <li class="crop__item" [ngStyle]="{ '--delay': index * 0.2 + 's' }">
+      <star-card
+        [title]="crop.name"
+        [imageSrc]="crop.imagePath"
+        (titleEmitter)="onSelectedCrop($event)"
+      />
+    </li>
     }
   </ul>
 </section>

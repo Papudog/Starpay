@@ -1,0 +1,101 @@
+.about__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .about__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      & h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .about__content {
+    background: url("/assets/png/Paper.png") no-repeat center center/contain;
+    min-height: 80vh;
+    padding: 2rem;
+    .about__text {
+      max-width: 75%;
+      margin: 0 auto;
+      & p {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        text-align: justify;
+      }
+
+      .stardew {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        margin: 1rem 0;
+        font-weight: 700;
+        background-size: 200% 100%;
+        background-image: linear-gradient(
+          90deg,
+          #64ffff 0%,
+          #65caff 25%,
+          #6499ff 50%,
+          #6564fe 75%,
+          #6634ff 100%
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: dope 2s infinite alternate-reverse;
+      }
+
+      .stardew::before {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 0.425rem;
+        background: url("/assets/gif/Junimo.gif") no-repeat center
+          center/contain;
+      }
+    }
+
+    @media (max-width: 768px) and (orientation: landscape) {
+      background: url("/assets/png/Paper_2.png") no-repeat center center/contain;
+      min-height: 70vh;
+
+      .about__text {
+        max-width: 70%;
+        margin: 0 auto;
+        & p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      background: url("/assets/png/Paper_2.png") no-repeat center center/contain;
+      min-height: 45vh;
+
+      .about__text {
+        max-width: 55%;
+        margin: 0 auto;
+        & p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dope {
+  to {
+    background-position: 100%;
+  }
+}

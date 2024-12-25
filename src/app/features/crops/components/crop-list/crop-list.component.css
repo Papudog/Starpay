@@ -8,10 +8,13 @@
 
   .crops__title {
     background: url("/assets/png/Frame_2.png") no-repeat center center/contain;
-    color: var(--text-color);
     text-align: center;
     padding: 0.4rem;
     margin-bottom: 1rem;
+
+    & h1 {
+      color: var(--text-color);
+    }
   }
 
   .crop__list {
