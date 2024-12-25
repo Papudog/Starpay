@@ -1,10 +1,6 @@
 <section class="crops__container">
   <star-crop-list [title]="title()" [crops]="crops()" />
 
-  <button class="button__home" type="button" (click)="onHomeButtonClick()">
-    <span>Choose another season</span>
-  </button>
-
   @if (isSelectedCrop()) {
   <dialog class="crop__dialog" #cropDialog>
     <star-crop-dialog [crop]="selectedCrop()" />

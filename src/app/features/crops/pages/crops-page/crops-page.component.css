@@ -2,28 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  .button__home {
-    background: url("/assets/png/Frame_2.png") no-repeat center center/contain;
-    width: 70%;
-    padding: 1rem;
-    text-align: center;
-    margin: 4rem auto 0;
-    border: none;
-    font-family: inherit;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
-    }
-
-    & span {
-      font-size: 1.5rem;
-      color: var(--text-color);
-    }
-  }
 }
 
 .crop__dialog {

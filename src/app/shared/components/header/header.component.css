@@ -24,15 +24,16 @@
     height: 28px;
     position: absolute;
     left: 1rem;
+    top: 50%;
     animation: scaling 0.8s infinite alternate;
   }
 }
 
 @keyframes scaling {
   0% {
-    transform: rotate(90deg) scaleY(-1) scaleX(-1) scale(1);
+    transform: translateY(-50%) rotate(90deg) scaleY(-1) scaleX(-1) scale(1);
   }
   100% {
-    transform: rotate(90deg) scaleY(-1) scaleX(-1) scale(1.1);
+    transform: translateY(-50%) rotate(90deg) scaleY(-1) scaleX(-1) scale(1.1);
   }
 }

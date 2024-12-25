@@ -2,20 +2,19 @@ import { Component, EffectRef, ElementRef, OnDestroy, OnInit, Signal, WritableSi
 import { CropsService } from "../../services/crops.service";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CropListComponent } from "../../components/crop-list/crop-list.component";
-import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { CropDialogComponent } from "../../components/crop-dialog/crop-dialog.component";
 
 @Component({
   selector: "star-crops-page",
-  imports: [CommonModule, CropListComponent, CropDialogComponent],
+  imports: [CropListComponent, CropDialogComponent],
   templateUrl: "./crops-page.component.html",
   styleUrl: "./crops-page.component.css",
 })
 export class CropsPageComponent implements OnInit, OnDestroy {
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private _cropsService: CropsService = inject(CropsService);
-  private _router: Router = inject(Router);
 
   private _title: WritableSignal<string> = signal<string>("");
   private _cropDialog = viewChild<ElementRef<HTMLDialogElement>>("cropDialog");
@@ -47,9 +46,6 @@ export class CropsPageComponent implements OnInit, OnDestroy {
   });
 
   private _resetCrop = (): void => this.selectedCrop.set({} as Crop);
-
-  protected onHomeButtonClick = (): Promise<boolean> =>
-    this._router.navigate(["/"]);
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params: ParamMap): void => {
