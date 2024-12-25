@@ -15,6 +15,10 @@
     & h1 {
       color: var(--text-color);
     }
+
+    @media (min-width: 768px) {
+      margin-bottom: 2.5rem;
+    }
   }
 
   .crop__list {
@@ -23,7 +27,8 @@
     row-gap: 1rem;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      grid-template-columns: repeat(3, minmax(150px, 250px));
     }
 
     @media (max-width: 768px) {

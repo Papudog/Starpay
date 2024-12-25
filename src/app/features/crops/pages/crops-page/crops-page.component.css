@@ -5,7 +5,7 @@
 }
 
 .crop__dialog {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -20,5 +20,10 @@
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    max-width: 50%;
+    margin: auto;
   }
 }

@@ -5,6 +5,7 @@ import { CropListComponent } from "../../components/crop-list/crop-list.componen
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { CropDialogComponent } from "../../components/crop-dialog/crop-dialog.component";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "star-crops-page",
@@ -16,13 +17,16 @@ export class CropsPageComponent implements OnInit, OnDestroy {
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private _cropsService: CropsService = inject(CropsService);
 
+  private _subscriptions: Subscription = new Subscription();
+
   private _title: WritableSignal<string> = signal<string>("");
   private _cropDialog = viewChild<ElementRef<HTMLDialogElement>>("cropDialog");
 
   protected readonly title: Signal<string> = computed((): string =>
     this._title()
       .split("")
-      .map((value: string, index: number): string => index === 0 ? value.toUpperCase() : value,
+      .map((value: string, index: number): string =>
+        index === 0 ? value.toUpperCase() : value
       )
       .join(""),
   );
@@ -48,17 +52,20 @@ export class CropsPageComponent implements OnInit, OnDestroy {
   private _resetCrop = (): void => this.selectedCrop.set({} as Crop);
 
   ngOnInit(): void {
-    this._activatedRoute.paramMap.subscribe((params: ParamMap): void => {
-      const seasonParam: string | null = params.get("season");
-      if (seasonParam) {
-        this._cropsService.seasonParam.set(seasonParam);
-        this._title.set(seasonParam);
-      }
-    });
+    this._subscriptions.add(
+      this._activatedRoute.paramMap.subscribe((params: ParamMap): void => {
+        const seasonParam: string | null = params.get("season");
+        if (seasonParam) {
+          this._cropsService.seasonParam.set(seasonParam);
+          this._title.set(seasonParam);
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {
     this._selectedCropEffect.destroy();
+    this._subscriptions.unsubscribe();
     this._cropDialog()?.nativeElement.removeEventListener(
       "close",
       this._resetCrop,

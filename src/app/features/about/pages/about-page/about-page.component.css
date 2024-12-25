@@ -65,6 +65,24 @@
       }
     }
 
+    @media (min-width: 580px) and (max-width: 1280px) {
+      background: url("/assets/png/Paper.png") no-repeat center center/contain;
+
+      .about__title {
+        & h1 {
+          font-size: 2rem;
+        }
+      }
+
+      .about__text {
+        max-width: 55%;
+        margin: 0 auto;
+        & p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
     @media (max-width: 768px) and (orientation: landscape) {
       background: url("/assets/png/Paper_2.png") no-repeat center center/contain;
       min-height: 70vh;
@@ -85,7 +103,7 @@
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1280px) {
       background: url("/assets/png/Paper_2.png") no-repeat center center/contain;
       min-height: 45vh;
 

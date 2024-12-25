@@ -16,7 +16,7 @@ export class CropListComponent implements OnInit {
   public title: InputSignal<string> = input.required<string>();
   public crops: InputSignal<Crop[]> = input.required<Crop[]>();
 
-  constructor() {}
+  constructor() { }
 
   protected onSelectedCrop = (title: string): void => {
     const crop: Crop | undefined = this.crops().find(
@@ -25,5 +25,5 @@ export class CropListComponent implements OnInit {
     if (crop) this._cropService.selectedCrop.set(crop);
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
