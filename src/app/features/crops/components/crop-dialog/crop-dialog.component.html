@@ -1,12 +1,18 @@
 <div class="dialog__container">
-  <div class="dialog__slider" #sliderContainer>
-    <div class="dialog__slide">
-      <star-card [title]="crop().name" [imageSrc]="crop().imagePath" />
-      <star-crop-details [crop]="crop()" />
-      <div id="next" (click)="nextSlide()"></div>
-    </div>
-    <div class="dialog__slide">
-      <star-crop-incoming></star-crop-incoming>
+  <div class="dialog__content">
+    <star-card [title]="crop().name" [imageSrc]="crop().imagePath" />
+    <div class="dialog__slider" #sliderContainer>
+      <div class="dialog__slide">
+        <star-crop-details [crop]="crop()" />
+      </div>
+      <div class="dialog__slide">
+        <star-crop-incoming [crop]="crop()" />
+      </div>
     </div>
   </div>
+  @if (refLocation()){
+  <div id="next" (click)="nextSlide()"></div>
+  } @else {
+  <div id="back" (click)="nextSlide()"></div>
+  }
 </div>

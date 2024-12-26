@@ -1,1 +1,42 @@
-<p>crop-incoming works!</p>
+<section class="incoming__section">
+  <h2 class="details__title">Pricing</h2>
+  <form class="incomings" [formGroup]="formGroup">
+    <div class="incomings__item">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        name="amount"
+        id="amount"
+        formControlName="amount"
+        [min]="0"
+      />
+    </div>
+
+    <div class="incomings__item">
+      <label for="purchase">Purchase</label>
+      <input
+        type="number"
+        name="purchase"
+        id="purchase"
+        formControlName="purchase"
+        readonly
+      />
+    </div>
+
+    <div class="incomings__item">
+      <label for="selling">Selling</label>
+      <input
+        type="number"
+        name="selling"
+        id="selling"
+        formControlName="selling"
+        readonly
+      />
+    </div>
+
+    <div class="incomings__item">
+      <label for="days">Ingame day</label>
+      <input type="number" name="days" id="days" formControlName="days" />
+    </div>
+  </form>
+</section>

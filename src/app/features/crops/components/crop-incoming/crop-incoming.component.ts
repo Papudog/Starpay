@@ -1,11 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, input, InputSignal, OnDestroy, OnInit, Signal, signal, WritableSignal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Crop } from '../../../../core/models/crops.interface';
+import { Subscription } from 'rxjs';
+
+interface CropForm {
+  amount: FormControl<number>;
+  purchase: FormControl<number>;
+  selling: FormControl<number>;
+  days: FormControl<number | null>;
+}
 
 @Component({
   selector: 'star-crop-incoming',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './crop-incoming.component.html',
   styleUrl: './crop-incoming.component.css'
 })
-export class CropIncomingComponent {
+export class CropIncomingComponent implements OnInit, OnDestroy {
+  public crop: InputSignal<Crop> = input.required<Crop>();
 
+  private subscriptions: Subscription = new Subscription();
+
+  private _amount: WritableSignal<number> = signal(0);
+  private _selling: number = 0;
+  private _purchase: number = 0;
+  private _days: WritableSignal<number> = signal(0);
+
+  protected purchase: Signal<number> =
+    computed((): number => this._amount() * this._purchase)
+  protected selling: Signal<number> =
+    computed((): number => this._amount() * this._selling)
+
+  protected formGroup: FormGroup = new FormGroup<CropForm>({
+    amount: new FormControl<number>(0, { nonNullable: true }),
+    purchase: new FormControl<number>(0, { nonNullable: true }),
+    selling: new FormControl<number>(0, { nonNullable: true }),
+    days: new FormControl<number | null>(0)
+  })
+
+  private _incomeEffect = effect((): void => {
+    this._getControl('purchase')?.setValue(this.purchase());
+    this._getControl('selling')?.setValue(this.selling());
+  })
+  private _getControl = (control: string) => this.formGroup.get(control);
+
+  constructor() { }
+  ngOnInit(): void {
+    this._selling = this.crop().price;
+    this._purchase = this.crop().purchaseValue as number;
+    this.subscriptions.add(
+      this.formGroup.valueChanges.subscribe((formControl: CropForm): void => {
+        if (!formControl) return;
+        const { amount, days } = formControl;
+        this._amount.set(Number(amount) ?? 0);
+        this._days.set(Number(days) ?? 0);
+      })
+    )
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+    this._incomeEffect.destroy();
+  }
 }

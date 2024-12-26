@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  input,
-  InputSignal,
-  OnDestroy,
-  OnInit,
-  viewChild,
-} from "@angular/core";
+import { Component, ElementRef, input, InputSignal, OnDestroy, OnInit, signal, viewChild, WritableSignal } from "@angular/core";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 import { CropDetailsComponent } from "../crop-details/crop-details.component";
@@ -21,24 +13,28 @@ import { CropIncomingComponent } from "../crop-incoming/crop-incoming.component"
 export class CropDialogComponent implements OnInit, OnDestroy {
   public crop: InputSignal<Crop> = input.required<Crop>();
 
-  protected sliderRef =
-    viewChild<ElementRef<HTMLDivElement>>("sliderContainer");
+  protected sliderRef = viewChild<ElementRef<HTMLDivElement>>("sliderContainer");
 
-  constructor() {}
+  protected refLocation: WritableSignal<boolean> = signal<boolean>(true);
+
+  constructor() { }
 
   ngOnDestroy(): void {
-    console.log("CropDialogComponent destroyed");
   }
 
   ngOnInit(): void {
-    console.log("CropDialogComponent initialized");
+    this.nextSlide();
   }
 
   protected nextSlide = (): void => {
-    const sliderWidth: number = this.sliderRef()?.nativeElement
-      .offsetWidth as number;
-    const sliderRef: HTMLElement = this.sliderRef()
-      ?.nativeElement as HTMLElement;
-    sliderRef.scrollLeft += sliderWidth;
+    const sliderWidth: number = this.sliderRef()?.nativeElement.offsetWidth as number;
+    const sliderRef: HTMLElement = this.sliderRef()?.nativeElement as HTMLElement;
+    if (this.refLocation()) {
+      sliderRef.scrollLeft += sliderWidth;
+      this.refLocation.set(false);
+    } else {
+      sliderRef.scrollLeft -= sliderWidth;
+      this.refLocation.set(true);
+    }
   };
 }
