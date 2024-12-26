@@ -30,7 +30,7 @@ export class CropsPageComponent implements OnInit, OnDestroy {
       )
       .join(""),
   );
-  protected crops: WritableSignal<Crop[]> = this._cropsService.crops;
+  protected crops = this._cropsService.crops.value as WritableSignal<Crop[]>;
   protected selectedCrop: WritableSignal<Crop> = this._cropsService.selectedCrop;
 
   protected isSelectedCrop: WritableSignal<boolean> = signal<boolean>(false);

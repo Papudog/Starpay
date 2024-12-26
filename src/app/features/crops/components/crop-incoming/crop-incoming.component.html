@@ -1,42 +1,62 @@
 <section class="incoming__section">
-  <h2 class="details__title">Pricing</h2>
-  <form class="incomings" [formGroup]="formGroup">
-    <div class="incomings__item">
-      <label for="amount">Amount</label>
-      <input
-        type="number"
-        name="amount"
-        id="amount"
-        formControlName="amount"
-        [min]="0"
-      />
-    </div>
+  <!-- <h2 class="details__title">Pricing</h2> -->
+  <form class="incomings__form" [formGroup]="formGroup">
+    <fieldset class="incoming__fields">
+      <legend align="center" class="incoming__legend">Income</legend>
+      <div class="incomings__item">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          formControlName="amount"
+          [min]="0"
+          (input)="onInputChange('amount')"
+        />
+      </div>
 
-    <div class="incomings__item">
-      <label for="purchase">Purchase</label>
-      <input
-        type="number"
-        name="purchase"
-        id="purchase"
-        formControlName="purchase"
-        readonly
-      />
-    </div>
+      <div class="incomings__item">
+        <label for="days">Ingame day</label>
+        <input
+          type="number"
+          name="days"
+          id="days"
+          formControlName="days"
+          [min]="0"
+          (input)="onInputChange('days')"
+        />
+      </div>
 
-    <div class="incomings__item">
-      <label for="selling">Selling</label>
-      <input
-        type="number"
-        name="selling"
-        id="selling"
-        formControlName="selling"
-        readonly
-      />
-    </div>
+      <div class="incomings__item">
+        <label for="total">Will it grow?</label>
+        @if (isGrowing() && days() > 0) {
+        <img src="assets/png/Green_Button.png" />
+        } @else {
+        <img src="assets/png/Red_Button.png" />
+        }
+      </div>
 
-    <div class="incomings__item">
-      <label for="days">Ingame day</label>
-      <input type="number" name="days" id="days" formControlName="days" />
-    </div>
+      <div class="incomings__item">
+        <label for="purchase">Purchase</label>
+        <input
+          type="number"
+          name="purchase"
+          id="purchase"
+          formControlName="purchase"
+          readonly
+        />
+      </div>
+
+      <div class="incomings__item">
+        <label for="selling">Selling</label>
+        <input
+          type="number"
+          name="selling"
+          id="selling"
+          formControlName="selling"
+          readonly
+        />
+      </div>
+    </fieldset>
   </form>
 </section>

@@ -1,5 +1,5 @@
 import { Component, computed, effect, input, InputSignal, OnDestroy, OnInit, Signal, signal, WritableSignal } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Crop } from '../../../../core/models/crops.interface';
 import { Subscription } from 'rxjs';
 
@@ -27,16 +27,15 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
   private _days: WritableSignal<number> = signal(0);
 
   protected purchase: Signal<number> =
-    computed((): number => this._amount() * this._purchase)
+    computed((): number => this._amount() * this._purchase);
   protected selling: Signal<number> =
-    computed((): number => this._amount() * this._selling)
+    computed((): number => this._amount() * this._selling);
 
-  protected formGroup: FormGroup = new FormGroup<CropForm>({
-    amount: new FormControl<number>(0, { nonNullable: true }),
-    purchase: new FormControl<number>(0, { nonNullable: true }),
-    selling: new FormControl<number>(0, { nonNullable: true }),
-    days: new FormControl<number | null>(0)
-  })
+  protected isGrowing: Signal<boolean> =
+    computed((): boolean => (this._days() + this.crop().time) <= 28);
+  protected days: Signal<number> = computed((): number => this._days());
+
+  protected formGroup: FormGroup;
 
   private _incomeEffect = effect((): void => {
     this._getControl('purchase')?.setValue(this.purchase());
@@ -44,7 +43,21 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
   })
   private _getControl = (control: string) => this.formGroup.get(control);
 
-  constructor() { }
+  protected onInputChange = (controlName: keyof CropForm): void => {
+    const control = this._getControl(controlName);
+    if (control && control.value < 0)
+      control.setValue(0);
+  }
+
+  constructor() {
+    this.formGroup = new FormGroup<CropForm>({
+      amount: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true, }),
+      purchase: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
+      selling: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
+      days: new FormControl<number | null>(0, { validators: [Validators.min(0)], nonNullable: true }),
+    })
+  }
+
   ngOnInit(): void {
     this._selling = this.crop().price;
     this._purchase = this.crop().purchaseValue as number;
@@ -57,6 +70,7 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
       })
     )
   }
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
     this._incomeEffect.destroy();

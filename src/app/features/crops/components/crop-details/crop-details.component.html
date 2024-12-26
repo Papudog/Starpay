@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <label>Sell: </label><span>{{ crop().price + "g" }}</span>
+      <label>Sell: </label><span>{{ crop().price + "g per unit" }}</span>
     </div>
   </div>
 </section>
@@ -19,10 +19,10 @@
       <label>Time: </label><span>{{ crop().time + " days" }}</span>
     </div>
     @if (crop().regrowthTime) {
-      <div>
-        <label>Regrowth Time: </label>
-        <span>{{ crop().regrowthTime + " days" }}</span>
-      </div>
+    <div>
+      <label>Regrowth Time: </label>
+      <span>{{ crop().regrowthTime + " days" }}</span>
+    </div>
     }
   </div>
 </section>

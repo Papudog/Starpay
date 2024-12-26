@@ -10,21 +10,33 @@
   min-width: 180px;
   margin-top: 1rem;
 
-  .incomings {
+  .incomings__form {
     margin-top: 0.2rem;
     gap: 0.2rem;
+
+    .incoming__fields {
+      min-width: 200px;
+      border: none;
+
+      .incoming__legend {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+    }
 
     .incomings__item {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin: 0.2rem 0;
 
       & input {
         border: 4px solid;
         border-image: url("/assets/png/Menu_Border.png") 18;
         font-family: inherit;
         font-size: 1.125rem;
+        outline: none;
       }
     }
 
