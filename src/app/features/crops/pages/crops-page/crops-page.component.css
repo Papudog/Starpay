@@ -11,6 +11,11 @@
   transform: translate(-50%, -50%);
   width: 100%;
   overflow-x: hidden;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
 
   @media (min-width: 768px) {
     max-width: 50vh;
