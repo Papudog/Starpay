@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
     .dialog__slider {
       display: flex;
@@ -34,6 +35,7 @@
       min-height: inherit;
       scroll-behavior: smooth;
       overflow: hidden;
+      width: inherit;
 
       .dialog__slide {
         position: relative;
@@ -45,30 +47,37 @@
     }
   }
 
-  #next {
+  .arrow {
     position: absolute;
-    bottom: 50%;
-    right: 1rem;
-
     background: url("/assets/png/Arrow.png") no-repeat center center/contain;
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     cursor: pointer;
+    bottom: 50%;
 
+    @media (min-width: 768px) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
+  #next {
+    right: 1rem;
     animation: scalingRight 1s infinite alternate;
   }
 
   #back {
-    position: absolute;
-    bottom: 50%;
     left: 1rem;
-
-    background: url("/assets/png/Arrow.png") no-repeat center center/contain;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-
     animation: scalingLeft 1s infinite alternate;
+  }
+
+  @media (min-width: 1280px) {
+    #back {
+      left: 1rem;
+    }
+    #next {
+      right: 1rem;
+    }
   }
 }
 

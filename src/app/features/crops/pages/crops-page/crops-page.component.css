@@ -11,7 +11,10 @@
   transform: translate(-50%, -50%);
   width: 100%;
   overflow-x: hidden;
-  max-width: 50vw;
+
+  @media (min-width: 768px) {
+    max-width: 50vh;
+  }
 
   border: 10px solid;
   border-radius: 14px;
@@ -21,9 +24,5 @@
 
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  @media (min-width: 1280px) {
-    max-width: 30vw;
   }
 }

@@ -38,6 +38,10 @@
         font-family: inherit;
         font-size: 1.125rem;
         outline: none;
+
+        @media (max-width: 768px) {
+          width: 140px;
+        }
       }
 
       .grow__wrapper {

@@ -5,11 +5,11 @@
     <div class="dialog__slider" #sliderContainer>
       <div class="dialog__slide">
         <star-crop-details [crop]="crop()" />
-        <div id="next" (click)="nextSlide()"></div>
+        <div id="next" class="arrow" (click)="nextSlide()"></div>
       </div>
       <div class="dialog__slide">
         <star-crop-incoming [crop]="crop()" />
-        <div id="back" (click)="previousSlide()"></div>
+        <div id="back" class="arrow" (click)="previousSlide()"></div>
       </div>
     </div>
   </div>
