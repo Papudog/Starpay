@@ -4,6 +4,7 @@ import { CardComponent } from "../../../../shared/components/card/card.component
 import { CropDetailsComponent } from "../crop-details/crop-details.component";
 import { CropIncomingComponent } from "../crop-incoming/crop-incoming.component";
 import { CropsService } from "../../services/crops.service";
+import { NgIf } from "@angular/common";
 
 interface SliderProps {
   sliderWidth: number;
@@ -12,7 +13,7 @@ interface SliderProps {
 
 @Component({
   selector: "star-crop-dialog",
-  imports: [CardComponent, CropDetailsComponent, CropIncomingComponent],
+  imports: [CardComponent, CropDetailsComponent, CropIncomingComponent, NgIf],
   templateUrl: "./crop-dialog.component.html",
   styleUrl: "./crop-dialog.component.css",
 })
@@ -21,6 +22,7 @@ export class CropDialogComponent implements AfterViewInit {
 
   public crop: InputSignal<Crop> = input.required<Crop>();
 
+  protected showIncoming = false;
   protected sliderRef = viewChild.required<ElementRef<HTMLDivElement>>("sliderContainer");
 
   constructor() { }
@@ -42,6 +44,8 @@ export class CropDialogComponent implements AfterViewInit {
   protected nextSlide = (): void => {
     const { sliderWidth, sliderRef } = this.sliderProps();
     sliderRef.scrollLeft += sliderWidth;
+
+    if (!this.showIncoming) this.showIncoming = !this.showIncoming;
   };
 
   protected previousSlide = (): void => {
