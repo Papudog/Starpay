@@ -103,7 +103,7 @@
       }
     }
 
-    @media (min-width: 1280px) {
+    @media (min-width: 950px) {
       background: url("/assets/png/Paper_2.png") no-repeat center center/contain;
       min-height: 45vh;
 

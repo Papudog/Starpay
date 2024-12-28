@@ -69,7 +69,14 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
         this._amount.set(Number(amount) ?? 0);
         this._days.set(Number(days) ?? 0);
       })
-    )
+    );
+
+    const inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName('input');
+    for (let i = 0; i++;) {
+      inputs[i].addEventListener('focus', (event) => {
+        inputs[i].blur();
+      })
+    };
   }
 
   ngOnDestroy(): void {
