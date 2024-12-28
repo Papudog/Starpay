@@ -5,15 +5,12 @@
     <div class="dialog__slider" #sliderContainer>
       <div class="dialog__slide">
         <star-crop-details [crop]="crop()" />
+        <div id="next" (click)="nextSlide()"></div>
       </div>
       <div class="dialog__slide">
         <star-crop-incoming [crop]="crop()" />
+        <div id="back" (click)="previousSlide()"></div>
       </div>
     </div>
   </div>
-  @if (refLocation()){
-  <div id="next" (click)="nextSlide()"></div>
-  } @else {
-  <div id="back" (click)="nextSlide()"></div>
-  }
 </div>

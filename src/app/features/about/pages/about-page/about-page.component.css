@@ -36,7 +36,7 @@
 
       .stardew {
         position: relative;
-        justify-content: center;
+        justify-content: center; /* ??? */
         margin: 1rem 0;
         font-weight: 600;
         background-size: 200% 100%;

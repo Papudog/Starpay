@@ -10,6 +10,7 @@
           name="amount"
           id="amount"
           formControlName="amount"
+          #amountInput
           [min]="0"
           (input)="onInputChange('amount')"
         />
@@ -22,6 +23,7 @@
           name="days"
           id="days"
           formControlName="days"
+          #daysInput
           [min]="0"
           (input)="onInputChange('days')"
         />
