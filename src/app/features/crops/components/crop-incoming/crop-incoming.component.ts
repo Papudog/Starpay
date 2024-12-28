@@ -33,6 +33,7 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
 
   protected isGrowing: Signal<boolean> =
     computed((): boolean => (this._days() + this.crop().time) <= 28);
+  protected daysToGrow: Signal<number> = computed((): number => (this._days() + this.crop().time));
   protected days: Signal<number> = computed((): number => this._days());
 
   protected formGroup: FormGroup;

@@ -30,6 +30,7 @@
       justify-content: center;
       align-items: center;
       margin: 0.2rem 0;
+      position: relative;
 
       & input {
         border: 4px solid;
@@ -37,6 +38,24 @@
         font-family: inherit;
         font-size: 1.125rem;
         outline: none;
+      }
+
+      .grow__wrapper {
+        display: flex;
+        height: 32px;
+        width: 32px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .grow__wrapper--green {
+        background: url("/assets/png/Green_Button.png") no-repeat center center /
+          contain;
+      }
+
+      .grow__wrapper--red {
+        background: url("/assets/png/Red_Button.png") no-repeat center center /
+          contain;
       }
     }
 

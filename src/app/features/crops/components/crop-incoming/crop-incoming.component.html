@@ -28,11 +28,17 @@
       </div>
 
       <div class="incomings__item">
-        <label for="total">Will it grow?</label>
+        <label for="grow">{{
+          isGrowing() ? "It will grow by" : "It won't grow"
+        }}</label>
         @if (isGrowing() && days() > 0) {
-        <img src="assets/png/Green_Button.png" />
+        <div class="grow__wrapper grow__wrapper--green">
+          <span>{{ daysToGrow() }}</span>
+        </div>
         } @else {
-        <img src="assets/png/Red_Button.png" />
+        <div class="grow__wrapper grow__wrapper--red">
+          <span>{{ days() === 0 ? "" : days() }}</span>
+        </div>
         }
       </div>
 
