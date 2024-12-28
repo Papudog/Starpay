@@ -1,4 +1,5 @@
 <div class="dialog__container">
+  <div class="dialog__close" (click)="closeDialog()"></div>
   <div class="dialog__content">
     <star-card [title]="crop().name" [imageSrc]="crop().imagePath" />
     <div class="dialog__slider" #sliderContainer>

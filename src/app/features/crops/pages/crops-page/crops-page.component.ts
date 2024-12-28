@@ -1,4 +1,4 @@
-import { Component, EffectRef, ElementRef, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, inject, signal, viewChild } from "@angular/core";
+import { AfterViewInit, Component, EffectRef, ElementRef, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, inject, signal, viewChild } from "@angular/core";
 import { CropsService } from "../../services/crops.service";
 import { Crop } from "../../../../core/models/crops.interface";
 import { CropListComponent } from "../../components/crop-list/crop-list.component";
@@ -35,7 +35,12 @@ export class CropsPageComponent implements OnInit, OnDestroy {
 
   protected isSelectedCrop: WritableSignal<boolean> = signal<boolean>(false);
 
-  constructor() { }
+  constructor() {
+    effect((): void => {
+      if (this._cropDialog())
+        this._cropsService.dialogRef.set(this._cropDialog() as ElementRef<HTMLDialogElement>);
+    })
+  }
 
   private _selectedCropEffect: EffectRef = effect((): void => {
     if (Object.keys(this.selectedCrop()).length > 0) {

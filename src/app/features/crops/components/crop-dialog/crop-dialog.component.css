@@ -7,6 +7,22 @@
   position: relative;
   overflow: hidden;
 
+  .dialog__close {
+    position: absolute;
+    background: url("/assets/png/Exit.png") no-repeat center center/contain;
+    width: 42px;
+    height: 42px;
+    top: 10px;
+    right: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+  }
+
   .dialog__content {
     display: flex;
     flex-direction: column;

@@ -7,7 +7,7 @@ interface CropForm {
   amount: FormControl<number>;
   purchase: FormControl<number>;
   selling: FormControl<number>;
-  days: FormControl<number | null>;
+  days: FormControl<number>;
 }
 
 @Component({
@@ -26,9 +26,9 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
   private _purchase: number = 0;
   private _days: WritableSignal<number> = signal(0);
 
-  protected purchase: Signal<number> =
+  protected readonly purchase: Signal<number> =
     computed((): number => this._amount() * this._purchase);
-  protected selling: Signal<number> =
+  protected readonly selling: Signal<number> =
     computed((): number => this._amount() * this._selling);
 
   protected isGrowing: Signal<boolean> =
@@ -54,7 +54,7 @@ export class CropIncomingComponent implements OnInit, OnDestroy {
       amount: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true, }),
       purchase: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
       selling: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
-      days: new FormControl<number | null>(0, { validators: [Validators.min(0)], nonNullable: true }),
+      days: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
     })
   }
 
