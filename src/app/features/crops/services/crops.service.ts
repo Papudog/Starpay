@@ -1,24 +1,25 @@
-import { ElementRef, inject, Injectable, OnDestroy, OnInit, ResourceRef, Signal, signal, WritableSignal } from "@angular/core";
+import { ElementRef, inject, Injectable, ResourceRef, signal, WritableSignal } from "@angular/core";
 import { map } from "rxjs";
-import { Crop } from "../../../core/models/crops.interface";
+import { Crop, CropModel } from "../../../core/models/crops.interface";
 import { HttpClient } from "@angular/common/http";
 import { rxResource } from "@angular/core/rxjs-interop";
 
 type CropRecord = Record<string, Crop[]>;
+type DialogRef = ElementRef<HTMLDialogElement> | null;
 
-@Injectable({
-  providedIn: "root",
-})
-export class CropsService implements OnInit {
+@Injectable()
+export class CropsService {
+  // Injections
   private _httpClient: HttpClient = inject(HttpClient);
 
+  // Writable signals
   public seasonParam: WritableSignal<string> = signal<string>('');
-  public selectedCrop: WritableSignal<Crop> = signal<Crop>({} as Crop);
-
-  public dialogRef: WritableSignal<ElementRef<HTMLDialogElement>> = signal({} as ElementRef<HTMLDialogElement>);
+  public selectedCrop: WritableSignal<Crop> = signal<Crop>(CropModel.empty());
+  public dialogRef: WritableSignal<DialogRef> = signal<DialogRef>(null);
 
   constructor() { }
 
+  // Resource
   public crops: ResourceRef<Crop[]> =
     rxResource<Crop[], { seasonParam: string }>({
       request: () => ({
@@ -28,5 +29,4 @@ export class CropsService implements OnInit {
         .get<CropRecord>(`/assets/data/crops.json`)
         .pipe(map((crops): Crop[] => crops[request.seasonParam] ?? [])),
     })
-  ngOnInit(): void { }
 }

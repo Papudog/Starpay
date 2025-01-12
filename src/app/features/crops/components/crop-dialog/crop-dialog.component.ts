@@ -18,25 +18,34 @@ interface SliderProps {
   styleUrl: "./crop-dialog.component.css",
 })
 export class CropDialogComponent implements AfterViewInit {
+  // Injections
   private _cropsService: CropsService = inject(CropsService);
 
+  // Inputs
   public crop: InputSignal<Crop> = input.required<Crop>();
-
-  protected showIncoming = false;
   protected sliderRef = viewChild.required<ElementRef<HTMLDivElement>>("sliderContainer");
 
+  protected showIncoming: boolean = false;
+
   constructor() { }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.sliderRef().nativeElement.scrollTo({ left: 0, behavior: "instant" });
     });
   }
 
-  protected closeDialog = (): void => this._cropsService.dialogRef().nativeElement.close();
+  protected closeDialog = (): void => {
+    const dialogRef = this._cropsService.dialogRef();
+    if (dialogRef) {
+      console.log(dialogRef.nativeElement);
+      dialogRef.nativeElement.close();
+    }
+  }
 
   protected sliderProps = (): SliderProps => {
-    const sliderWidth: number = this.sliderRef().nativeElement.offsetWidth as number;
-    const sliderRef: HTMLElement = this.sliderRef().nativeElement as HTMLElement;
+    const sliderWidth: number = this.sliderRef().nativeElement.offsetWidth;
+    const sliderRef: HTMLElement = this.sliderRef().nativeElement;
 
     return { sliderWidth, sliderRef };
   }

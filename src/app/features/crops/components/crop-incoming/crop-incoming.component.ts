@@ -17,72 +17,84 @@ interface CropForm {
   styleUrl: './crop-incoming.component.css'
 })
 export class CropIncomingComponent implements OnInit, OnDestroy, AfterViewInit {
+  // Inputs
   public crop: InputSignal<Crop> = input.required<Crop>();
 
+  // Subscriptions
   private subscriptions: Subscription = new Subscription();
+
+  // Writable signals
   private _amount: WritableSignal<number> = signal(0);
-  private _selling: number = 0;
-  private _purchase: number = 0;
   private _days: WritableSignal<number> = signal(0);
 
-  protected readonly purchase: Signal<number> =
-    computed((): number => this._amount() * this._purchase);
-  protected readonly selling: Signal<number> =
-    computed((): number => this._amount() * this._selling);
-
-  protected isGrowing: Signal<boolean> =
-    computed((): boolean => (this._days() + this.crop().time) <= 28);
-  protected daysToGrow: Signal<number> = computed((): number => (this._days() + this.crop().time));
-  protected days: Signal<number> = computed((): number => this._days());
+  // Properties
   protected formGroup: FormGroup;
+  private _selling: number = 0;
+  private _purchase: number = 0;
 
-  private _incomeEffect = effect((): void => {
-    this._getControl('purchase')?.setValue(this.purchase());
-    this._getControl('selling')?.setValue(this.selling());
-  })
-  private _getControl = (control: string) => this.formGroup.get(control);
-
-  protected onInputChange = (controlName: keyof CropForm): void => {
-    const control = this._getControl(controlName);
-    if (control && control.value < 0)
-      control.setValue(0);
-  }
+  // Computed signals
+  protected readonly purchase: Signal<number> = computed((): number => this._ammountMultiplier(this._purchase));
+  protected readonly selling: Signal<number> = computed((): number => this._ammountMultiplier(this._selling));
+  protected readonly isGrowing: Signal<boolean> = computed((): boolean => (this._days() + this.crop().time) <= 28);
+  protected readonly daysToGrow: Signal<number> = computed((): number => (this._days() + this.crop().time));
+  protected readonly days: Signal<number> = computed((): number => this._days());
 
   constructor() {
-    this.formGroup = new FormGroup<CropForm>({
+    this.formGroup = this._initForm();
+
+    effect((): void => {
+      const purchaseControl = this._getControl('purchase');
+      const sellingControl = this._getControl('selling');
+
+      if (purchaseControl) purchaseControl.setValue(this.purchase());
+      if (sellingControl) sellingControl.setValue(this.selling());
+    });
+  }
+
+  // Methods
+  private _initForm = (): FormGroup<CropForm> => {
+    return new FormGroup<CropForm>({
       amount: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true, }),
       purchase: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
       selling: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
       days: new FormControl<number>(0, { validators: [Validators.min(0)], nonNullable: true }),
     })
   }
-  ngAfterViewInit(): void {
-    const inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName('input');
 
-    for (let i = 0; i++;) {
-      inputs[i].addEventListener('focus', (event) => {
-        inputs[i].blur();
-      })
+  private _ammountMultiplier = (value: number): number => {
+    return this._amount() * value;
+  }
+
+  private _getControl = (control: string) => {
+    return this.formGroup.get(control)
+  }
+
+  protected onInputChange = (controlName: keyof CropForm): void => {
+    const control = this._getControl(controlName);
+    if (control && control.value < 0) control.setValue(0);
+  }
+
+  ngAfterViewInit(): void {
+    const inputs = document.getElementsByTagName('input');
+
+    for (const input of Array.from(inputs)) {
+      input.addEventListener('focus', (): void => input.blur());
     }
   }
 
   ngOnInit(): void {
     this._selling = this.crop().price;
-    this._purchase = this.crop().purchaseValue as number;
+    this._purchase = this.crop().purchaseValue ?? 0;
+
     this.subscriptions.add(
-      this.formGroup.valueChanges.subscribe((formControl: CropForm): void => {
-        if (!formControl) return;
-        const { amount, days } = formControl;
+      this.formGroup.valueChanges.subscribe(({ amount, days }: Partial<CropForm>) => {
         this._amount.set(Number(amount) ?? 0);
         this._days.set(Number(days) ?? 0);
       })
     );
-
-
   }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
-    this._incomeEffect.destroy();
   }
 }

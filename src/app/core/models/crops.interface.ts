@@ -8,3 +8,18 @@ export interface Crop {
   experience: number;
   imagePath: string;
 }
+
+export class CropModel {
+  static empty(): Crop {
+    return {
+      name: "",
+      purchaseValue: null,
+      source: "",
+      price: 0,
+      time: 0,
+      regrowthTime: null,
+      experience: 0,
+      imagePath: ""
+    }
+  }
+}
