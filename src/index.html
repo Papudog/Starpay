@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Starpay</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/assets/gif/Junimo.gif" />
-  </head>
 
-  <body>
-    <div class="star__wrapper">
-      <app-root></app-root>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Starpay</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/assets/gif/Junimo.gif" />
+</head>
+
+<body>
+  <div class="star__container">
+    <app-root></app-root>
+  </div>
+</body>
+
 </html>
 
 <style>
-  .star__wrapper {
-    background: url("/assets/jpg/stardew-night.jpg") no-repeat center
-      center/cover;
+  .star__container {
+    background: url("/assets/jpg/stardew-night.jpg") no-repeat center center/cover;
     animation: scroll-background 50s linear infinite;
-    overflow-x: hidden;
+    height: 100dvh;
 
     @media (min-width: 1280) {
       background-size: 150%;
