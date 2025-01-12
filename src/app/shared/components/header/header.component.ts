@@ -1,6 +1,7 @@
-import { Component, effect, EffectRef, inject, Signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, effect, EffectRef, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
 import { RoutingService } from '../../../core/services/routing.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'star-header',
@@ -9,14 +10,19 @@ import { RoutingService } from '../../../core/services/routing.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  private _routingService: RoutingService = inject(RoutingService);
-
+  private readonly _routingService: RoutingService = inject(RoutingService);
   private readonly _parentUrl: Signal<string> = this._routingService.parentUrl;
-  public isHome: boolean = false;
+
+  protected readonly title: Signal<string> = computed(() =>
+    this._routingService.params()
+      .split("")
+      .map((value: string, index: number): string =>
+        index === 0 ? value.toUpperCase() : value
+      )
+      .join("")
+  );
+  public readonly isHome: Signal<boolean> = computed(() => this._parentUrl() === 'home');
+
 
   constructor() { }
-
-  private _parentUrlEffect: EffectRef = effect(
-    (): boolean => this.isHome = this._parentUrl() === 'home'
-  );
 }

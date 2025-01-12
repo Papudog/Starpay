@@ -5,6 +5,7 @@ import { CropListComponent } from "../../components/crop-list/crop-list.componen
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { CropDialogComponent } from "../../components/crop-dialog/crop-dialog.component";
 import { Subscription } from "rxjs";
+import { RoutingService } from "../../../../core/services/routing.service";
 
 @Component({
   selector: "star-crops-page",
@@ -17,25 +18,19 @@ export class CropsPageComponent implements OnInit, OnDestroy {
   // Injections
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private _cropsService: CropsService = inject(CropsService);
+  private _routingService: RoutingService = inject(RoutingService);
 
   // Subscriptions
   private _subscriptions: Subscription = new Subscription();
 
   // Writable signals
-  private _title: WritableSignal<string> = signal<string>("");
   private _cropDialog = viewChild<ElementRef<HTMLDialogElement>>("cropDialog");
   protected selectedCrop: WritableSignal<Crop> = this._cropsService.selectedCrop;
   protected isSelectedCrop: WritableSignal<boolean> = signal<boolean>(false);
 
   // Computed signals
-  protected readonly crops: Signal<Crop[]> = computed((): Crop[] => this._cropsService.crops.value() ?? []);
-  protected readonly title: Signal<string> = computed((): string => this._title()
-    .split("")
-    .map((value: string, index: number): string =>
-      index === 0 ? value.toUpperCase() : value
-    )
-    .join("")
-  );
+  protected readonly crops: Signal<Crop[]> = computed(() => this._cropsService.crops.value() ?? []);
+
 
   constructor() {
     effect((): void => {
@@ -71,7 +66,7 @@ export class CropsPageComponent implements OnInit, OnDestroy {
         const seasonParam = params.get("season");
         if (seasonParam) {
           this._cropsService.seasonParam.set(seasonParam);
-          this._title.set(seasonParam);
+          this._routingService.params = seasonParam;
         }
       })
     );

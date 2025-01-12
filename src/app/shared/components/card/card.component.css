@@ -3,15 +3,17 @@
   justify-content: center;
   align-items: center;
 
-  background: url("/assets/png/Frame.png") no-repeat center center/contain;
+  background: url("/assets/png/Frame.png") no-repeat center center/cover;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s;
-  padding: 1rem;
-  max-width: 150px;
+  width: 6.6rem;
+  height: 5rem;
+
+  /* 106 * 90 */
 
   @media (min-width: 768px) {
-    padding: 1.2rem;
+    /* padding: 1.2rem; */
     h3 {
       font-size: 1.125rem; /* 18px */
     }
@@ -28,7 +30,6 @@
     gap: 0.4rem;
     align-items: center;
     text-align: center;
-    width: 100px;
 
     & a {
       width: 100%;

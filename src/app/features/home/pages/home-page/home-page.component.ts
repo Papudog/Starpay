@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CardComponent } from "../../../../shared/components/card/card.component";
 import { CommonModule } from "@angular/common";
 import { RouterLink } from "@angular/router";
+import { RoutingService } from "../../../../core/services/routing.service";
 
 const seasons = [
   {
@@ -31,7 +32,11 @@ const seasons = [
   styleUrl: "./home-page.component.css",
 })
 export class HomePageComponent {
+  private readonly _routingService: RoutingService = inject(RoutingService);
+
   protected seasons = seasons;
 
-  constructor() { }
+  constructor() {
+    this._routingService.params = "";
+  }
 }

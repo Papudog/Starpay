@@ -1,6 +1,6 @@
 <header class="star__header">
-  @if (!isHome){
+  @if (!isHome()){
   <a class="home__link" routerLink="/"></a>
   }
-  <h1 class="main__title">Starpay</h1>
+  <h1 class="main__title">{{title() || "Starpay"}}</h1>
 </header>
