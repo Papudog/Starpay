@@ -20,7 +20,7 @@ export class CropsService {
   constructor() { }
 
   // Resource
-  public crops: ResourceRef<Crop[]> =
+  public crops: ResourceRef<Crop[] | undefined> =
     rxResource<Crop[], { seasonParam: string }>({
       request: () => ({
         seasonParam: this.seasonParam(),

@@ -16,7 +16,7 @@ interface CropForm {
   templateUrl: './crop-incoming.component.html',
   styleUrl: './crop-incoming.component.css'
 })
-export class CropIncomingComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CropIncomingComponent implements OnInit, OnDestroy {
   // Inputs
   public crop: InputSignal<Crop> = input.required<Crop>();
 
@@ -72,14 +72,6 @@ export class CropIncomingComponent implements OnInit, OnDestroy, AfterViewInit {
   protected onInputChange = (controlName: keyof CropForm): void => {
     const control = this._getControl(controlName);
     if (control && control.value < 0) control.setValue(0);
-  }
-
-  ngAfterViewInit(): void {
-    const inputs = document.getElementsByTagName('input');
-
-    for (const input of Array.from(inputs)) {
-      input.addEventListener('focus', (): void => input.blur());
-    }
   }
 
   ngOnInit(): void {
